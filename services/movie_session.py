@@ -15,9 +15,7 @@ def create_movie_session(
     )
 
 
-def get_movies_sessions(
-    session_date: str | None = None,
-) -> list[MovieSession]:
+def get_movies_sessions(session_date: str | None = None):
     sessions = MovieSession.objects.all()
 
     if session_date:
