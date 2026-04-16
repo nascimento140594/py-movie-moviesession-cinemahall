@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Genre(models.Model):
-    name = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=255)
 
     def __str__(self) -> str:
         return self.name
@@ -53,4 +53,7 @@ class MovieSession(models.Model):
     )
 
     def __str__(self) -> str:
-        return f"{self.movie.title} {self.show_time}"
+        return (
+            f"{self.movie.title} "
+            f"{self.show_time.strftime('%Y-%m-%d %H:%M:%S')}"
+        )
